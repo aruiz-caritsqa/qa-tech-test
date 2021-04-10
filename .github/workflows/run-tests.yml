@@ -31,7 +31,7 @@ jobs:
         working-directory: src/test/e2e
         run: |
           npm install 
-          npm test
+          HEADLESS=1 npm test
   multi-tool-package-tests:
     runs-on: ubuntu-latest
     needs:
