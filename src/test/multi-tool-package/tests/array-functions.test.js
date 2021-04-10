@@ -1,4 +1,4 @@
-const { findBalanceIndex } = require('./index');
+const { findBalanceIndex } = require('../index');
 
 describe('Test findBalanceIndex', () => {
   test.each`
