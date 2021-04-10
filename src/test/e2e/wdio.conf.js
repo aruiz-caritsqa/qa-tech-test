@@ -1,9 +1,3 @@
-/* eslint-disable max-len */
-
-const dotenv = require('dotenv').config();
-const fs = require('fs-extra');
-const glob = require('glob');
-
 global.browserSizeName = process.env.SIZE;
 baseUrl = process.env.BASE_URL || 'http://localhost:3000';
 

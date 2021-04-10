@@ -1,4 +1,3 @@
-const { DeviceSignalCellularConnectedNoInternet0Bar } = require('material-ui/svg-icons');
 const { submitAnswer } = require('../src/api-wrapper');
 
 describe('Test the /ECSD-QA-tech-test endpoint', () => {
