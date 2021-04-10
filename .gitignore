@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/src/test/e2e/node_modules/
+/src/test/multi-tool-package/node_modules/
+
 
 # testing
 /coverage
