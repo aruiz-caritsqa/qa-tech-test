@@ -5,7 +5,7 @@ on:
       - '**'
 
 jobs:
-  setup:
+  start-server:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,7 +15,16 @@ jobs:
         with:
           node-version: '8.11'          
       - name: Start Application
-        run: yarn && yarn start &
+        run: |
+          yarn
+          yarn start &
+          
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
       - name: Install multi-tool-package modules
         working-directory: src/test/multi-tool-package
