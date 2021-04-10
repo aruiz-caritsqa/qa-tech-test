@@ -18,41 +18,30 @@ jobs:
         run: |
           yarn
           yarn start &
-          
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-
-      - name: Install multi-tool-package modules
-        working-directory: src/test/multi-tool-package
-        run: npm install 
-            
-      - name: Install e2e test suite modules
-        working-directory: src/test/e2e
-        run: npm install 
 
   e2e-tests:
     runs-on: ubuntu-latest
     needs:
-      - setup
+      - start-server
     steps:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
       - name: Run e2e tests
         working-directory: src/test/e2e
-        run: npm test
+        run: |
+          npm install 
+          npm test
   multi-tool-package-tests:
     runs-on: ubuntu-latest
     needs:
-      - setup
+      - start-server
     steps:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
       - name: Run multi-tool-package tests
         working-directory: src/test/multi-tool-package
-        run: npm test
+        run: |
+          npm install 
+          npm test
