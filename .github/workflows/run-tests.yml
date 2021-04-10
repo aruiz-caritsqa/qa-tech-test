@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '8.11'          
       - name: Start Application
-        run: yarn && yarn start
+        run: yarn && yarn start &
 
       - name: Install multi-tool-package modules
         working-directory: src/test/multi-tool-package
