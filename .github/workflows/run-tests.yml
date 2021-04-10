@@ -5,7 +5,7 @@ on:
       - '**'
 
 jobs:
-  start-server:
+  e2e-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,19 +19,15 @@ jobs:
           yarn
           yarn start &
 
-  e2e-tests:
-    runs-on: ubuntu-latest
-    needs:
-      - start-server
-    steps:
-      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          persist-credentials: false
+          node-version: '12.18'
       - name: Run e2e tests
         working-directory: src/test/e2e
         run: |
           npm install 
           HEADLESS=1 npm test
+          
   multi-tool-package-tests:
     runs-on: ubuntu-latest
     needs:
